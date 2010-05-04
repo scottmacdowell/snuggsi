@@ -1,0 +1,50 @@
+= Snuggsi.com
+
+== Read Me for Snuggsi.com
+
+USE W3C XHTML Standards
+UNDER 500 LINES OF CODE!
+
+ HTML - 150 LOC
+ CSS - 250 LOC
+ ECMA - 100 LOC
+ ---------------
+ TOTAL - 499 LOC
+
+=== STRUCTURAL
+ html, body, head, title, meta, link, script, style
+
+=== HEADING
+ h1, h2, h3, h4, h5, h6
+=== BLOCK
+ address, blockquote, div, p, pre
+=== LIST
+ ul, ol, dl, li, dt, dd
+=== INLINE
+ a, abbr, cite, code, em, kbd, map, object, q, span, strike, strong, sub, sup
+
+=== FLOW
+ HEADING, BLOCK, INLINE
+
+=== FORMS
+ form, button, select, input, textarea, fieldset, legend, label
+
+=== EMPTY
+ img, hr, area (NO BR)
+
+
+=== divs (7)
+ #header
+ #functions
+--------------------------------------------------------
+ #content
+--------------------------------------------------------
+ #content-second (optional)
+ #content-third (optional *paid)
+--------------------------------------------------------
+ #footer
+   #contact (Should contact be an id instead of a class
+   #validation
+   #legal
+
+
