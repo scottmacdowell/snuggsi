@@ -1,11 +1,27 @@
 Feature: Content can be posted to snuggsi
-  In order to give users the ability to access content
+  In order to give users the ability to access persisted content
   As an Administrator
   I want to make a sub-class of Thingi (or at least a Thingi) postable
-  So that Every thingi has the ability to be posted
-  
-  Scenario: content gets posted to snuggsi
-    Given I am on default snuggsi page
+
+  Background:
+    Given the following user record:
+      | username | email                          | password |
+      | snuggs   | snuggs@snuggsi.com             | temp     |
+
+  Scenario: Content gets posted to snuggsi
+    Given I am the following user logged in to my Snuggsi Account:
+      | username | email                          | password |
+      | snuggs   | snuggs@snuggsi.com             | temp     |
+
     When I create content that inherits from thingi
-    Then I can post the content
-    And content is now accessible to the public
+    And I can post the content
+    Then the content is now accessible to the public
+    And shows up at the top of list for all Posts
+
+  Scenario Outline: multiple user content gets posted to snuggsi
+    Given I am logged in to my Snuggsi Account as <username> and <password>:
+    And my email address is returned as <email>
+
+  Examples:
+    | username | email                          | password |
+    | snuggs   | snuggs@snuggsi.com             | temp     |
