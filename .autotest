@@ -1,0 +1,27 @@
+Autotest.add_hook :red do |autotest|   
+  p "Failures!"
+end
+
+Autotest.add_hook :initialize do |at|
+  at.add_exception %r{^\.git}  # ignore Version Control System
+  at.add_exception %r{^./tmp}  # ignore temp files, lest autotest will run again, and again...
+  #  at.clear_mappings         # take out the default (test/test*rb)
+  at.add_mapping(%r{^lib/.*\.rb$}) do |f, _|
+    Dir['spec/**/*.rb']
+  end
+  nil
+end
+
+#
+# Override autotest default magic deciding which test to run when
+# a file is changed : enable more flexible naming conventions
+# trading some of the efficiency: we rerun all the tests each time.
+#
+class Autotest
+
+#  def test_files_for(filename)
+#    Dir["test/**/*.rb"]
+#  end 
+
+end
+
