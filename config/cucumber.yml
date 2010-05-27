@@ -1,0 +1,19 @@
+﻿<%
+ENV['AUTOFEATURE'] = "true"
+#ENV['RSPEC'] = "true"
+
+  rerun          = "@rerun.txt"
+  rerun_commands = File.file?('rerun.txt') ? IO.read('rerun.txt') : ""
+  rerun_opts     = rerun.to_s.strip.empty? ? "--format pretty features" : "--format #{ENV['CUCUMBER_FORMAT'] || 'pretty'} #{rerun_commands}"
+  files          = 'features'
+  require        = '--require lib --require features'
+  std_opts       = "#{require} --strict --format pretty --color #{files}" #{rerun_opts} --out rerun.txt 
+%>
+
+none:         --format progress
+default:      <%= std_opts %> --no-source --tags @posts --tags ~@incomplete
+rerun:        <%= rerun %>
+verbose:      --verbose
+html_report:  --format html --out=features_report.html
+autotest:     <%= std_opts %>
+autotest-all: <%= std_opts %> --no-source  --tags @posts

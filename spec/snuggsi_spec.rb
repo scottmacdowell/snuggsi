@@ -40,14 +40,14 @@ describe Account do
   end
 end
 
-describe 'Post' do
+describe Page do
 end
 
-describe 'Page' do
+describe Project do
 end
 
-describe 'Project' do
+describe Lesson do
 end
 
-describe 'Lesson' do
+describe Book do
 end

@@ -1,18 +1,16 @@
+@posts
 Feature: Content can be posted to snuggsi
   In order to give users the ability to access persisted content
   As an Administrator
   I want to make a sub-class of Thingi (or at least a Thingi) postable
 
   Background:
-    Given the following user record:
+    Given the following user information:
       | username | email                          | password |
       | snuggs   | snuggs@snuggsi.com             | temp     |
 
   Scenario: Content gets posted to snuggsi
-    Given I am the following user logged in to my Snuggsi Account:
-      | username | email                          | password |
-      | snuggs   | snuggs@snuggsi.com             | temp     |
-
+    Given I am logged in to my Snuggsi Account
     When I create content that inherits from thingi
     And I can post the content
     Then the content is now accessible to the public

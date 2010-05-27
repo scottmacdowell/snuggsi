@@ -1,4 +1,5 @@
 namespace :db do
+  desc "Migrate one model specifically by name"
   task :migrate_one => :environment do
     raise '*** Must provide klass name***' if ENV['class'].nil?
 
